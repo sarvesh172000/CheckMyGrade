@@ -31,7 +31,9 @@ To run the unit tests, use the following command:
 python -m unittest test_checkmygrade.py
 
 ## File Structure 
+
 CheckMyGrade/
+
 ├── app.py                  # Flask application
 
 ├── test_checkmygrade.py    # Unit tests -- python -m unittest test_checkmygrade.py

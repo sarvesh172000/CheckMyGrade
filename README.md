@@ -25,3 +25,19 @@ CheckMyGrade is a Python-based application for managing student grades, courses,
 
 - **Authentication**:
   - User registration and login with password encryption.
+
+## Testing
+To run the unit tests, use the following command:
+python -m unittest test_checkmygrade.py
+
+## File Structure 
+CheckMyGrade/
+├── app.py                  # Flask application
+├── test_checkmygrade.py    # Unit tests -- python -m unittest test_checkmygrade.py
+├── generate_students.py    # Script to generate student records
+├── students.csv            # Student data
+├── courses.csv             # Course data
+├── professors.csv          # Professor data
+├── grades.csv              # Grade data
+├── login.csv               # User login data
+├── README.md               # Project documentation

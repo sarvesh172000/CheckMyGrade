@@ -1,0 +1,3 @@
+Course.id,Email,Professor_Name,Professor_id,Rank
+DATA200,smith@example.com,Dr. Smith,prof1@example.com,Senior Professor
+DATA200,brown@example.com,Dr. Brown,prof3@example.com,Senior Professor

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration - CheckMyGrade</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>CheckMyGrade Application</h1>
+
+        <!-- Registration Form -->
+        <h2>Register</h2>
+        <form id="registerForm">
+            <label for="userId">User ID (Email):</label>
+            <input type="email" id="userId" name="userId" required><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+            <label for="role">Role:</label>
+            <input type="text" id="role" name="role" required><br>
+            <button type="submit">Register</button>
+        </form>
+
+        <!-- Login Form -->
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="loginUserId">User ID (Email):</label>
+            <input type="email" id="loginUserId" name="loginUserId" required><br>
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" name="loginPassword" required><br>
+            <button type="submit">Login</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Register User
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const data = {
+                User_id: e.target.userId.value,
+                Password: e.target.password.value,
+                Role: e.target.role.value
+            };
+            const response = await fetch('/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            const result = await response.json();
+            document.getElementById('result').innerHTML = `<p>${result.message}</p>`;
+        });
+
+        // Login User
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const data = {
+                User_id: e.target.loginUserId.value,
+                Password: e.target.loginPassword.value
+            };
+            const response = await fetch('/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            const result = await response.json();
+            if (result.redirect) {
+                window.location.href = result.redirect;  // Redirect to dashboard
+            } else {
+                document.getElementById('result').innerHTML = `<p>${result.message}</p>`;
+            }
+        });
+    </script>
+</body>
+</html>

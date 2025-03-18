@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - CheckMyGrade</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Dashboard</h1>
+        <button id="logoutButton">Logout</button>
+
+        <!-- Student Management -->
+  
+        <h2>Student Management</h2>
+        <form id="addStudentForm">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required><br>
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required><br>
+            <label for="courseId">Course ID:</label>
+            <input type="text" id="courseId" name="courseId" required><br>
+            <label for="grade">Grade:</label>
+            <input type="text" id="grade" name="grade" required><br>
+            <label for="marks">Marks:</label>
+            <input type="number" id="marks" name="marks" required><br>
+            <button type="submit">Add Student</button>
+        </form>
+
+        <form id="deleteStudentForm">
+            <label for="deleteEmail">Email:</label>
+            <input type="email" id="deleteEmail" name="deleteEmail" required>
+            <button type="submit">Delete Student</button>
+        </form>
+
+        <form id="modifyStudentForm">
+            <label for="modifyEmail">Email:</label>
+            <input type="email" id="modifyEmail" name="modifyEmail" required><br>
+            <label for="newFirstName">New First Name:</label>
+            <input type="text" id="newFirstName" name="newFirstName"><br>
+            <label for="newLastName">New Last Name:</label>
+            <input type="text" id="newLastName" name="newLastName"><br>
+            <label for="newCourseId">New Course ID:</label>
+            <input type="text" id="newCourseId" name="newCourseId"><br>
+            <label for="newGrade">New Grade:</label>
+            <input type="text" id="newGrade" name="newGrade"><br>
+            <label for="newMarks">New Marks:</label>
+            <input type="number" id="newMarks" name="newMarks"><br>
+            <button type="submit">Modify Student</button>
+        </form>
+
+        <button id="showAllStudents">Show All Students</button>
+        <div id="allStudents"></div>
+   
+
+    
+        <!-- Professor Management -->
+        <h2>Professor Management</h2>
+        <form id="addProfessorForm">
+            <label for="professorId">Professor ID:</label>
+            <input type="email" id="professorId" name="professorId" required><br>
+            <label for="professorName">Professor Name:</label>
+            <input type="text" id="professorName" name="professorName" required><br>
+            <label for="professorEmail">Email:</label>
+            <input type="email" id="professorEmail" name="professorEmail" required><br>
+            <label for="rank">Rank:</label>
+            <input type="text" id="rank" name="rank" required><br>
+            <label for="professorCourseId">Course ID:</label>
+            <input type="text" id="professorCourseId" name="professorCourseId" required><br>
+            <button type="submit">Add Professor</button>
+        </form>
+
+        <form id="deleteProfessorForm">
+            <label for="deleteProfessorId">Professor ID:</label>
+            <input type="email" id="deleteProfessorId" name="deleteProfessorId" required>
+            <button type="submit">Delete Professor</button>
+        </form>
+
+        <form id="modifyProfessorForm">
+            <label for="modifyProfessorId">Professor ID:</label>
+            <input type="email" id="modifyProfessorId" name="modifyProfessorId" required><br>
+            <label for="newProfessorName">New Name:</label>
+            <input type="text" id="newProfessorName" name="newProfessorName"><br>
+            <label for="newProfessorEmail">New Email:</label>
+            <input type="email" id="newProfessorEmail" name="newProfessorEmail"><br>
+            <label for="newRank">New Rank:</label>
+            <input type="text" id="newRank" name="newRank"><br>
+            <label for="newProfessorCourseId">New Course ID:</label>
+            <input type="text" id="newProfessorCourseId" name="newProfessorCourseId"><br>
+            <button type="submit">Modify Professor</button>
+        </form>
+
+        <button id="showAllProfessors">Show All Professors</button>
+        <div id="allProfessors"></div>
+    
+
+    
+        <!-- Course Management -->
+        <h2>Course Management</h2>
+        <form id="addCourseForm">
+            <label for="courseIdAdd">Course ID:</label>
+            <input type="text" id="courseIdAdd" name="courseIdAdd" required><br>
+            <label for="courseName">Course Name:</label>
+            <input type="text" id="courseName" name="courseName" required><br>
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" required><br>
+            <label for="credits">Credits:</label>
+            <input type="number" id="credits" name="credits" required><br>
+            <button type="submit">Add Course</button>
+        </form>
+
+        <form id="deleteCourseForm">
+            <label for="deleteCourseId">Course ID:</label>
+            <input type="text" id="deleteCourseId" name="deleteCourseId" required>
+            <button type="submit">Delete Course</button>
+        </form>
+
+        <form id="modifyCourseForm">
+            <label for="modifyCourseId">Course ID:</label>
+            <input type="text" id="modifyCourseId" name="modifyCourseId" required><br>
+            <label for="newCourseName">New Course Name:</label>
+            <input type="text" id="newCourseName" name="newCourseName"><br>
+            <label for="newDescription">New Description:</label>
+            <input type="text" id="newDescription" name="newDescription"><br>
+            <label for="newCredits">New Credits:</label>
+            <input type="number" id="newCredits" name="newCredits"><br>
+            <button type="submit">Modify Course</button>
+        </form>
+
+        <button id="showAllCourses">Show All Courses</button>
+        <div id="allCourses"></div>
+    
+
+    
+        <!-- Search and Sort -->
+        <h2>Search and Sort</h2>
+        <form id="searchStudentForm">
+            <label for="searchEmail">Student Email:</label>
+            <input type="email" id="searchEmail" name="searchEmail" required>
+            <button type="submit">Search Student</button>
+        </form>
+        <div id="searchResult"></div>
+
+        <button id="sortStudentsByMarks">Sort Students by Marks</button>
+        <div id="sortedStudents"></div>
+
+        <!-- Average Marks for a Course -->
+        <h2>Average Marks for a Course</h2>
+        <form id="averageMarksForm">
+            <label for="courseIdAvg">Course ID:</label>
+            <input type="text" id="courseIdAvg" name="courseIdAvg" required>
+            <button type="submit">Get Average Marks</button>
+        </form>
+        <div id="averageMarksResult"></div>
+    
+    </div>
+
+    <script>
+        // Logout User
+        document.getElementById('logoutButton').addEventListener('click', async () => {
+            const response = await fetch('/logout', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }
+            });
+            const result = await response.json();
+            if (result.redirect) {
+                window.location.href = result.redirect;  // Redirect to login page
+            }
+        });
+
+        // Add Student
+        document.getElementById('addStudentForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const data = {
+                Email_address: e.target.email.value,
+                First_name: e.target.firstName.value,
+                Last_name: e.target.lastName.value,
+                'Course.id': e.target.courseId.value,
+                grades: e.target.grade.value,
+                Marks: e.target.marks.value
+            };
+            const response = await fetch('/add_student', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            const result = await response.json();
+            alert(result.message);
+        });
+
+        // Delete Student
+        document.getElementById('deleteStudentForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = e.target.deleteEmail.value;
+            const response = await fetch(`/delete_student/${email}`, {
+                method: 'DELETE'
+            });
+            const result = await response.json();
+            alert(result.message);
+        });
+
+        // Modify Student
+        document.getElementById('modifyStudentForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = e.target.modifyEmail.value;
+            const data = {
+                First_name: e.target.newFirstName.value,
+                Last_name: e.target.newLastName.value,
+                'Course.id': e.target.newCourseId.value,
+                grades: e.target.newGrade.value,
+                Marks: e.target.newMarks.value
+            };
+            const response = await fetch(`/modify_student/${email}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            const result = await response.json();
+            alert(result.message);
+        });
+
+        // Show All Students
+        document.getElementById('showAllStudents').addEventListener('click', async () => {
+            const response = await fetch('/students');
+            const result = await response.json();
+            document.getElementById('allStudents').innerHTML = `<pre>${JSON.stringify(result, null, 2)}</pre>`;
+        });
+
+        // Add Professor
+        document.getElementById('addProfessorForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const data = {
+                Professor_id: e.target.professorId.value,
+                Professor_Name: e.target.professorName.value,
+                Email: e.target.professorEmail.value,
+                Rank: e.target.rank.value,
+                'Course.id': e.target.professorCourseId.value
+            };
+            const response = await fetch('/add_professor', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            const result = await response.json();
+            alert(result.message);
+        });
+
+        // Delete Professor
+        document.getElementById('deleteProfessorForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const professorId = e.target.deleteProfessorId.value;
+            const response = await fetch(`/delete_professor/${professorId}`, {
+                method: 'DELETE'
+            });
+            const result = await response.json();
+            alert(result.message);
+        });
+
+        // Modify Professor
+        document.getElementById('modifyProfessorForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const professorId = e.target.modifyProfessorId.value;
+            const data = {
+                Professor_Name: e.target.newProfessorName.value,
+                Email: e.target.newProfessorEmail.value,
+                Rank: e.target.newRank.value,
+                'Course.id': e.target.newProfessorCourseId.value
+            };
+            const response = await fetch(`/modify_professor/${professorId}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            const result = await response.json();
+            alert(result.message);
+        });
+
+        // Show All Professors
+        document.getElementById('showAllProfessors').addEventListener('click', async () => {
+            const response = await fetch('/professors');
+            const result = await response.json();
+            document.getElementById('allProfessors').innerHTML = `<pre>${JSON.stringify(result, null, 2)}</pre>`;
+        });
+
+        // Add Course
+        document.getElementById('addCourseForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const data = {
+                Course_id: e.target.courseIdAdd.value,
+                Course_name: e.target.courseName.value,
+                Description: e.target.description.value,
+                Credits: e.target.credits.value
+            };
+            const response = await fetch('/add_course', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            const result = await response.json();
+            alert(result.message);
+        });
+
+        // Delete Course
+        document.getElementById('deleteCourseForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const courseId = e.target.deleteCourseId.value;
+            const response = await fetch(`/delete_course/${courseId}`, {
+                method: 'DELETE'
+            });
+            const result = await response.json();
+            alert(result.message);
+        });
+
+        // Modify Course
+        document.getElementById('modifyCourseForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const courseId = e.target.modifyCourseId.value;
+            const data = {
+                Course_name: e.target.newCourseName.value,
+                Description: e.target.newDescription.value,
+                Credits: e.target.newCredits.value
+            };
+            const response = await fetch(`/modify_course/${courseId}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            const result = await response.json();
+            alert(result.message);
+        });
+
+        // Show All Courses
+        document.getElementById('showAllCourses').addEventListener('click', async () => {
+            const response = await fetch('/courses');
+            const result = await response.json();
+            document.getElementById('allCourses').innerHTML = `<pre>${JSON.stringify(result, null, 2)}</pre>`;
+        });
+
+        // Search Student
+        document.getElementById('searchStudentForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = e.target.searchEmail.value;
+            const response = await fetch(`/search_student/${email}`);
+            const result = await response.json();
+            if (result.student) {
+                document.getElementById('searchResult').innerHTML = `<pre>${JSON.stringify(result.student, null, 2)}</pre>`;
+            } else {
+                document.getElementById('searchResult').innerHTML = `<p>${result.message}</p>`;
+            }
+        });
+
+        // Sort Students by Marks
+        document.getElementById('sortStudentsByMarks').addEventListener('click', async () => {
+            const response = await fetch('/sort_students_by_marks');
+            const result = await response.json();
+            document.getElementById('sortedStudents').innerHTML = `<pre>${JSON.stringify(result.sorted_students, null, 2)}</pre>`;
+        });
+        // Show All Students
+document.getElementById('showAllStudents').addEventListener('click', async () => {
+    const response = await fetch('/students');
+    const result = await response.json();
+    if (result.length > 0) {
+        document.getElementById('allStudents').innerHTML = `<pre>${JSON.stringify(result, null, 2)}</pre>`;
+    } else {
+        document.getElementById('allStudents').innerHTML = `<p>No students found.</p>`;
+    }
+});
+
+// Show All Professors
+document.getElementById('showAllProfessors').addEventListener('click', async () => {
+    const response = await fetch('/professors');
+    const result = await response.json();
+    if (result.length > 0) {
+        document.getElementById('allProfessors').innerHTML = `<pre>${JSON.stringify(result, null, 2)}</pre>`;
+    } else {
+        document.getElementById('allProfessors').innerHTML = `<p>No professors found.</p>`;
+    }
+});
+
+// Show All Courses
+document.getElementById('showAllCourses').addEventListener('click', async () => {
+    const response = await fetch('/courses');
+    const result = await response.json();
+    if (result.length > 0) {
+        document.getElementById('allCourses').innerHTML = `<pre>${JSON.stringify(result, null, 2)}</pre>`;
+    } else {
+        document.getElementById('allCourses').innerHTML = `<p>No courses found.</p>`;
+    }
+});
+
+// Get Average Marks for a Course
+document.getElementById('averageMarksForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const courseId = e.target.courseIdAvg.value;
+    const response = await fetch(`/average_marks/${courseId}`);
+    const result = await response.json();
+    if (result.average_marks) {
+        document.getElementById('averageMarksResult').innerHTML = `<p>Average Marks for Course ${courseId}: ${result.average_marks}</p>`;
+    } else {
+        document.getElementById('averageMarksResult').innerHTML = `<p>${result.message}</p>`;
+    }
+});
+
+        
+    </script>
+</body>
+</html>
